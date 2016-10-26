@@ -299,7 +299,7 @@ Given that change, the sentinel object idiom could be rewritten as::
     class Maybe:
       SENTINEL = object()
       def __init__(self, value):
-          self._result = (value,) is value is not self.SENTINEL else ()
+          self._result = (value,) if value is not self.SENTINEL else ()
       def __exists__(self):
           return self._result
 
